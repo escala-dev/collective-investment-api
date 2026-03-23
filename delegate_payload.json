@@ -1,0 +1,7 @@
+{
+    "fromUserId": "user_abc123",
+    "toUserId": "user_xyz999",
+    "amount": 100,
+    "tokenId": "PT-001",
+    "delegateDate": "2026-09-01T00:00:00Z"
+}

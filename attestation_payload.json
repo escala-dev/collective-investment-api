@@ -1,0 +1,7 @@
+{
+    "attestorId": "oracle_01",
+    "proposalId": "ms_01",
+    "evidenceHash": "sha256:...",
+    "signature": "base64-sig",
+    "Date": "2025-10-15 00:00:00"
+}

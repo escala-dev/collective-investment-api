@@ -1,0 +1,8 @@
+{
+    "uploaderUserId": "admin_001",
+    "files": [
+        "s3://evidence/photo1.jpg",
+        "s3://evidence/receipt.pdf"
+    ],
+    "notes": "Fotos y recibos de instalación"
+}

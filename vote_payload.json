@@ -1,0 +1,5 @@
+{
+    "userId": "user_abc123",
+    "vote": "yes",
+    "signature": "base64-sig"
+}

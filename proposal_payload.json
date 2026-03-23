@@ -1,0 +1,10 @@
+{
+    "title": "Instalar 3 cámaras de seguridad",
+    "communityId": "community_123",
+    "description": "Compra e instalación de 3 cámaras en la avenida principal",
+    "amountUsdc": 500.00,
+    "milestoneId": "ms_01",
+    "attachments": [
+        "s3://evidence/quote.pdf"
+    ]
+}

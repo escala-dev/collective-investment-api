@@ -1,0 +1,12 @@
+{
+    "communityId": "community_123",
+    "name": "Proyectos generales",
+    "tokenModel": {
+        "type": "fungible",
+        "decimals": 2
+    },
+    "governanceModel": {
+        "type": "SBT",
+        "quorum": 0.2
+    }
+}

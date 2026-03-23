@@ -1,0 +1,7 @@
+{
+    "fundId": "fund_01",
+    "recipientWalletId": "wallet_def456",
+    "usdcAmount": 100.00,
+    "mintReason": "contribution_remittance",
+    "onchainTx": "onchain_tx_0x123"
+}
