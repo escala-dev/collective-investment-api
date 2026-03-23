@@ -5,11 +5,11 @@ info:
     API documentation for the Collective Investment API
 
     ***Documents:***
-    - <a href="https://ameroexchangelimited-my.sharepoint.com/:w:/g/personal/orodriguez_amero_exchange/IQBoeCxstPSCTa5ulgi_JEZKAa19oKyeLrUfbiJ3fuRNKP4?e=aUB3Lf">Document Architecture</a>
+    - <a href="https://docs.google.com/document/d/1w6gW5SwUEl7QZylIBi1bp34vaEAPZmL1">Document Architecture</a>
   version: 1.0.0
 servers:
-- url: http://localhost:3010
-  description: Local server
+- url: https://collectiveinvestment.api.escalahq.com
+  description: Production server
 paths:
   /health:
     get:
