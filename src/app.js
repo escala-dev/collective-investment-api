@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
 app.get('/health', (req, res) => {
     const health = {
         status: 'OK',
-        version: '1.0.0',
+        version: '1.0.1',
         timestamp: new Date().toISOString(),
         uptime: process.uptime(),
     };
