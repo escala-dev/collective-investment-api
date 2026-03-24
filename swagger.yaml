@@ -9,7 +9,7 @@ info:
   version: 1.0.0
 servers:
 - url: https://collectiveinvestment.api.escalahq.com
-  description: Production server
+  description: Production server 1
 paths:
   /health:
     get:
