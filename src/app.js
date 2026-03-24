@@ -29,6 +29,16 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
+// Root Route for View
+app.get('/health', (req, res) => {
+    const health = {
+        status: 'OK',
+        timestamp: new Date().toISOString(),
+        uptime: process.uptime(),
+    };
+    res.render('health', { health });
+});
+
 // Start Server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
