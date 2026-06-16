@@ -964,3 +964,119 @@ paths:
                         result:
                           type: string
                           example: approved
+
+  /v1/webhooks/moneygram/settlement:
+    post:
+      tags:
+        - Tokens & Tokens Factory
+      summary: MoneyGram Fiat Settlement Webhook
+      description: Endpoint securely exposed to the MoneyGram Access API to receive asynchronous confirmation of fiat settlement. This trigger automatically executes the USDC deposit into the Soroban Escrow (TreasuryContract) and calls the Token Factory to mint proportional Project Tokens.
+      security:
+        - WebhookAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MoneyGramSettlementPayload'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: processed
+                  onchainTxPending:
+                    type: boolean
+                    example: true
+
+  /v1/webhooks/sdp/status:
+    post:
+      tags:
+        - disbursements flow
+      summary: SDP Bulk Payout Status Webhook
+      description: Receives async status updates directly from the Stellar Disbursement Platform (SDP) after a bulk payout is executed to local vendors. Updates the Escala B2B dashboard with real-time success or failure metrics.
+      security:
+        - WebhookAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SdpStatusUpdatePayload'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: updated
+
+components:
+  securitySchemes:
+    WebhookAuth:
+      type: apiKey
+      in: header
+      name: X-Webhook-Signature
+      description: HMAC SHA-256 signature for validating that the request originates from a trusted provider.
+  schemas:
+    MoneyGramSettlementPayload:
+      type: object
+      required:
+        - transactionId
+        - status
+        - fiatAmount
+        - usdcEquivalent
+        - userWalletId
+      properties:
+        transactionId:
+          type: string
+          example: mg_9988_xyz
+        status:
+          type: string
+          enum:
+            - SETTLED
+            - FAILED
+          example: SETTLED
+        fiatAmount:
+          type: number
+          example: 5000.00
+        usdcEquivalent:
+          type: number
+          example: 100.00
+        userWalletId:
+          type: string
+          example: wallet_def456
+    SdpStatusUpdatePayload:
+      type: object
+      required:
+        - disbursementId
+        - sdpTransactionId
+        - status
+        - completedAt
+      properties:
+        disbursementId:
+          type: string
+          example: dis_900
+        sdpTransactionId:
+          type: string
+          example: sdp_tx_001
+        status:
+          type: string
+          enum:
+            - SUCCESS
+            - PENDING
+            - FAILED
+          example: SUCCESS
+        completedAt:
+          type: string
+          format: date-time
+          example: '2026-09-10T12:05:00Z'
